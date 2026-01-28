@@ -27,12 +27,12 @@ const BoutsPage: NextPageWithLayout = () => {
   const currentBouts =
     useBoutsQuery({
       filter: { endTime: { isNil: true } },
-      sort: { field: "START_TIME" },
+      sort: { field: "START_TIME", order: "DESC" },
     }).data?.bouts?.results ?? [];
   const pastBouts =
     useBoutsQuery({
       filter: { endTime: { isNil: false } },
-      sort: { field: "START_TIME" },
+      sort: { field: "START_TIME", order: "DESC" },
     }).data?.bouts?.results ?? [];
 
   const handleStatUpdate = useCallback(
